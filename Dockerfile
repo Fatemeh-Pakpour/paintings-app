@@ -1,16 +1,16 @@
- FROM golang:1.17
- WORKDIR /app
+FROM golang:1.17
+WORKDIR /app
 COPY ./backend/go.mod .
 COPY ./backend/go.sum .
 
- RUN go mod download
+RUN go mod download
 
- COPY ./backend .
+COPY ./backend .
 
 # Build the application
- RUN go build -o main .
+RUN go build -o main .
 
 # Export necessary port
 EXPOSE 5000
- CMD ["/app/main"]
+CMD ["/app/main"]
 
