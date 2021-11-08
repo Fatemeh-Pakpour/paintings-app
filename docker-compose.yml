@@ -1,8 +1,15 @@
-version: "3.9"
+version: "3"
 services:
   backend:
-    build: .  
-    ports: 
-       - "8000:5000"
+    build: .
+    ports:
+      - "8000:5000"
     volumes:
       - .:/app
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+    container_name: "elasticsearch"
+    ports:
+      - 9200:9200
+      - 9300:9300
