@@ -1,7 +1,10 @@
 version: "3"
 services:
+  frontend:
+    build: ./frontend
+
   backend:
-    build: .
+    build: ./backend
     ports:
       - "8000:5000"
     volumes:
