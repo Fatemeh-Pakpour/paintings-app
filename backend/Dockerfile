@@ -20,12 +20,9 @@ RUN go build -o main .
 ###############
 FROM alpine:3.12
 RUN apk add curl 
-# RUN apk add ca-certificates
 
-
-COPY --from=build_base /app/main ./app/main
+COPY --from=build_base ./app/main ./main
 
 # Export necessary port
 EXPOSE 5000
-CMD ["/app/main"]
-
+CMD ./main
